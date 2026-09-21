@@ -1,0 +1,3 @@
+# source GIFs (40–340MB) — converted to assets/*.mp4 for the page
+assets/*.gif
+.DS_Store
