@@ -56,9 +56,9 @@ main, .site-header, .site-footer, .to-top { position: relative; }
 .site-header, .to-top { z-index: 50; }
 
 /* ─── Hero entrance ─── */
-.hero-title img { animation: title-in 1.4s cubic-bezier(.16, .84, .3, 1) both; }
-.hero-title { animation: title-glow 2.2s ease-out both; }
-.update-badge { animation: rise-in .9s cubic-bezier(.16, .84, .3, 1) .75s both; }
+.hero-title img { animation: title-in 1.4s cubic-bezier(.16, .84, .3, 1) .45s both; }
+.hero-title { animation: title-glow 2.2s ease-out .45s both; }
+.update-badge { animation: rise-in .9s cubic-bezier(.16, .84, .3, 1) 1.15s both; }
 .hero .story { transition-delay: .25s; }
 @keyframes title-in {
   0%   { opacity: 0; transform: scale(1.28) translateY(26px); filter: blur(10px) brightness(2.2); }
@@ -76,7 +76,7 @@ main, .site-header, .site-footer, .to-top { position: relative; }
 }
 @media (prefers-reduced-motion: reduce) {
   .glow { animation: none; }
-  .hero-title img, .hero-title, .update-badge { animation: none; }
+  .hero-title img, .hero-title, .update-badge, .hero-char { animation: none; }
 }
 
 /* ─── Reveal ─── */
@@ -149,12 +149,29 @@ main, .site-header, .site-footer, .to-top { position: relative; }
   position: relative; overflow: hidden;
   padding: 0 0 48px;
   background:
-    linear-gradient(180deg, rgba(18,10,44,0) 18vw, rgba(18,10,44,.85) 34vw, #120a2c 39.9vw, #120a2c 78%, var(--bg) 100%),
-    radial-gradient(50% 30% at 50% 70%, rgba(60, 30, 120, .35), transparent 70%),
-    url('assets/hero-baal.webp') center top / 100% auto no-repeat,
+    linear-gradient(180deg, rgba(18,10,44,0) 22vw, rgba(18,10,44,.85) 40vw, #120a2c 48vw, #120a2c 78%, var(--bg) 100%),
+    url('assets/hero-bg.webp') center top / 100% auto no-repeat,
     #120a2c;
 }
-.hero-art { height: 39.9vw; }
+.hero-art { position: relative; height: 46vw; }
+.hero-char {
+  position: absolute; left: 50%; top: 0; width: min(860px, 68%); aspect-ratio: 1500 / 1080;
+  background: url('assets/hero-char.webp') center / contain no-repeat;
+  translate: -50% 0;
+  -webkit-mask-image: linear-gradient(180deg, #000 58%, rgba(0,0,0,.4) 80%, transparent 96%);
+          mask-image: linear-gradient(180deg, #000 58%, rgba(0,0,0,.4) 80%, transparent 96%);
+  filter: drop-shadow(0 30px 40px rgba(0,0,0,.55));
+  animation: char-in 1.5s cubic-bezier(.16, .84, .3, 1) both, char-float 7s ease-in-out 1.5s infinite;
+}
+@keyframes char-in {
+  0%   { opacity: 0; translate: -50% 70px; scale: 1.08; filter: blur(10px) brightness(1.9) drop-shadow(0 30px 40px rgba(0,0,0,0)); }
+  60%  { opacity: 1; filter: blur(0) brightness(1.35) drop-shadow(0 30px 40px rgba(0,0,0,.3)); }
+  100% { opacity: 1; translate: -50% 0; scale: 1; filter: blur(0) brightness(1) drop-shadow(0 30px 40px rgba(0,0,0,.55)); }
+}
+@keyframes char-float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
+}
 .hero-body { position: relative; margin-top: -130px; text-align: center; }
 .hero-title { margin: 0 auto; width: min(760px, 92%); filter: drop-shadow(0 6px 26px rgba(120, 60, 220, .55)); }
 .hero-title img { width: 100%; height: auto; margin: 0 auto; }
@@ -357,12 +374,12 @@ main, .site-header, .site-footer, .to-top { position: relative; }
   .btn-play { padding: 8px 14px; font-size: 11px; }
   .hero {
     background:
-      linear-gradient(180deg, rgba(18,10,44,0) 34vw, rgba(18,10,44,.85) 54vw, #120a2c 62vw, #120a2c 78%, var(--bg) 100%),
-      radial-gradient(50% 30% at 50% 70%, rgba(60, 30, 120, .35), transparent 70%),
-      url('assets/hero-baal.webp') center top / 156% auto no-repeat,
+      linear-gradient(180deg, rgba(18,10,44,0) 34vw, rgba(18,10,44,.85) 54vw, #120a2c 64vw, #120a2c 78%, var(--bg) 100%),
+      url('assets/hero-bg.webp') center top / 170% auto no-repeat,
       #120a2c;
   }
-  .hero-art { height: 62vw; }
+  .hero-art { height: 64vw; }
+  .hero-char { width: 118%; top: 4vw; -webkit-mask-image: linear-gradient(180deg, #000 48%, rgba(0,0,0,.3) 72%, transparent 92%); mask-image: linear-gradient(180deg, #000 48%, rgba(0,0,0,.3) 72%, transparent 92%); }
   .hero-body { margin-top: -26px; }
   .story { font-size: 16px; }
   .story br { display: none; }
