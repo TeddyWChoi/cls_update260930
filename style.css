@@ -79,12 +79,6 @@ main, .site-header, .site-footer, .to-top { position: relative; }
   .hero-title img, .hero-title, .update-badge, .hero-char { animation: none; }
 }
 
-@media (min-width: 1500px) {
-  .hero-char { top: 56px; }
-  .hero-art { height: min(54vw, 1015px); }
-  .hero-body { margin-top: -400px; }
-}
-
 /* ─── Reveal ─── */
 .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease; }
 .reveal.in { opacity: 1; transform: none; }
@@ -152,16 +146,17 @@ main, .site-header, .site-footer, .to-top { position: relative; }
 
 /* ─── Hero ─── */
 .hero {
+  --S: min(100vw, 1265px); /* stage width: the hero composition scales with this and freezes above 1265px */
   position: relative; overflow: hidden;
   padding: 0 0 48px;
   background:
-    linear-gradient(180deg, rgba(18,10,44,0) min(26vw, 440px), rgba(18,10,44,.85) min(46vw, 830px), #120a2c min(56vw, 980px), #120a2c 78%, var(--bg) 100%),
+    linear-gradient(180deg, rgba(18,10,44,0) calc(var(--S) * .26), rgba(18,10,44,.85) calc(var(--S) * .46), #120a2c calc(var(--S) * .56), #120a2c 78%, var(--bg) 100%),
     url('assets/hero-bg.webp') center top / 100% auto no-repeat,
     #120a2c;
 }
-.hero-art { position: relative; height: min(54vw, 920px); }
+.hero-art { position: relative; height: calc(var(--S) * .54); }
 .hero-char {
-  position: absolute; left: 55.5%; top: max(-2vw, -40px); width: min(1290px, 102%); aspect-ratio: 1500 / 1080;
+  position: absolute; left: 55.5%; top: 0; width: min(1290px, 102%); aspect-ratio: 1500 / 1080;
   background: url('assets/hero-char.webp') center / contain no-repeat;
   translate: -50% 0;
   -webkit-mask-image: linear-gradient(180deg, #000 58%, rgba(0,0,0,.4) 80%, transparent 96%);
@@ -178,7 +173,7 @@ main, .site-header, .site-footer, .to-top { position: relative; }
   0%, 100% { transform: translateY(0); }
   50%      { transform: translateY(-10px); }
 }
-.hero-body { position: relative; margin-top: -130px; text-align: center; }
+.hero-body { position: relative; margin-top: calc(var(--S) * -.10); text-align: center; }
 .hero-title { margin: 0 auto; width: min(760px, 92%); filter: drop-shadow(0 6px 26px rgba(120, 60, 220, .55)); }
 .hero-title img { width: 100%; height: auto; margin: 0 auto; }
 .update-badge {
