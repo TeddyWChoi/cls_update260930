@@ -137,8 +137,8 @@ main, .site-header, .site-footer, .to-top { position: relative; }
 }
 .has-bar .sec-title::after { display: none; }
 .has-date-frame .update-badge {
-  width: min(620px, 96%); aspect-ratio: 2000 / 667; margin: -44px auto 0;
-  display: grid; place-items: center; padding: 0 12% 0.4%;
+  width: min(490px, 94%); aspect-ratio: 2000 / 667; margin: -30px auto 0;
+  display: grid; place-items: center; padding: 0 9% 0.4%;
   background: url('assets/date-frame.webp') center / contain no-repeat;
   border: 0; box-shadow: none; font-size: clamp(15px, 2.2vw, 21px); letter-spacing: .1em; color: #f1ecff; white-space: nowrap;
   text-shadow: 0 0 14px rgba(139,92,246,.9), 0 2px 8px rgba(0,0,0,.8);
@@ -183,7 +183,7 @@ main, .site-header, .site-footer, .to-top { position: relative; }
   box-shadow: 0 0 0 3px rgba(12, 6, 30, .5), 0 0 24px rgba(139, 92, 246, .35);
 }
 .story {
-  margin: -30px auto 0; max-width: 780px; padding: 0 12px;
+  margin: -20px auto 0; max-width: 780px; padding: 0 12px;
   font-family: var(--font-serif); font-size: clamp(17px, 2.1vw, 20px); font-weight: 500;
   line-height: 1.75; color: #efe9ff; letter-spacing: .01em;
   text-shadow: 0 2px 14px rgba(0,0,0,.8);
