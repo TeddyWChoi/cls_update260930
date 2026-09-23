@@ -354,6 +354,7 @@ main, .site-header, .site-footer, .to-top { position: relative; }
 .reward-table tbody tr:hover { background: rgba(139,92,246,.08); }
 .reward-table tr.is-title td { background: rgba(231,192,104,.08); }
 .reward-table tr.is-title td:first-child { color: var(--gold); }
+.reward-table tr.is-title td img { object-fit: contain; padding: 3px; }
 
 /* ─── Baal Raid Clear Event ─── */
 .clear-event { background: linear-gradient(180deg, var(--bg), var(--bg-2) 30%, var(--bg)); border-top: 1px solid var(--panel-line); }
